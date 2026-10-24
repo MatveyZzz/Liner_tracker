@@ -14,16 +14,20 @@
 
 ## Запуск
 
-Требуется Node.js LTS. Склонируй репозиторий и перейди в папку проекта:
+Требуется Node.js 22.13 или новее (SDK 58). Проверь версию командой `node -v`. Склонируй репозиторий и перейди в папку проекта:
 
 ```bash
 git clone https://github.com/MatveyZzz/Liner_tracker.git
 cd Liner_tracker
 npm install
+npx expo install --fix
+npx expo-doctor
 npx expo start
 ```
 
 Установи Expo Go на телефон и отсканируй QR-код из терминала или браузера. Для Android можно нажать `a`, для iOS — `i` (для iOS Simulator нужен macOS). Для web: `npx expo start --web`.
+
+Если `npx expo install --fix` обновит зависимости или сообщит о несовпадении версий, дай ему завершить работу. Если Node.js старее 22.13, сначала обнови Node.js, затем удали `node_modules` и `package-lock.json`, повтори `npm install`.
 
 ## Проверка типов
 

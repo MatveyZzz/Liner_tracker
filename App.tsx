@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Alert, FlatList, KeyboardAvoidingView, Modal, Platform, Pressable, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, KeyboardAvoidingView, Modal, Platform, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 import { AppData, COLORS, StudySession, Track, Unit, WEEKDAYS } from './src/types';
 import { clearData, loadData, saveData } from './src/storage';
 import { formatDate, isPlannedToday, paceStatus, projectedFinish, sessionsLastDays, todayISO, totalDone, weeklyHistory } from './src/utils';
@@ -71,7 +72,7 @@ export default function App() {
 
   if (!ready) return <SafeAreaView style={styles.safe}><View style={styles.loading}><Text style={styles.muted}>Загружаем твои треки…</Text></View></SafeAreaView>;
 
-  return <SafeAreaView style={styles.safe}><StatusBar barStyle="dark-content" backgroundColor="#F6F7FB" />
+  return <SafeAreaView style={styles.safe}><StatusBar style="dark" />
     {screen === 'home' && <><Header title="Мои треки" right={<Pressable onPress={()=>setScreen('settings')} style={styles.headerIcon}><Ionicons name="settings-outline" size={22} color="#65677A" /></Pressable>} /><ScrollView contentContainerStyle={styles.page} showsVerticalScrollIndicator={false}>
       <View style={styles.greeting}><Text style={styles.eyebrow}>ТВОЙ ПРОГРЕСС</Text><Text style={styles.pageTitle}>Учись в своём ритме</Text><Text style={styles.subtitle}>Маленькие шаги складываются в результат.</Text></View>
       {planned.length>0 && <View style={styles.reminder}><View style={styles.reminderIcon}><Ionicons name="calendar-outline" size={20} color="#6759E8" /></View><View style={{flex:1}}><Text style={styles.reminderTitle}>Сегодня по плану</Text><Text style={styles.reminderText}>{planned.map(t=>t.name+' · '+t.weeklyTarget+' '+unitShort(t)+'/нед').join('  •  ')}</Text></View></View>}

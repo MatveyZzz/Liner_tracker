@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Liner Tracker",
+    "slug": "liner-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F6F7FB"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F6F7FB"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
